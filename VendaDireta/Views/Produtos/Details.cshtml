@@ -1,0 +1,43 @@
+﻿@model VendaDireta.Models.Produto
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalhes do Produto</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Preco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Preco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vendido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vendido)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Alterar", "Edit", new { id = Model.ProdutoId }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Comprar", "Comprar", new { id = Model.ProdutoId }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Voltar", "Index", "", new { @class = "btn btn-danger" })
+</p>

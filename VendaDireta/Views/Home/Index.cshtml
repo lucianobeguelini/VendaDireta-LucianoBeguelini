@@ -1,0 +1,45 @@
+﻿@model IEnumerable<VendaDireta.Models.Produto>
+@{
+    ViewBag.Title = "Home";
+}
+
+<div class="menu-icon">
+    <a class="menu-link" href="@Url.Action("Index", "produtos")" target="_self" title="Produtos"><div class="ico-menu"><span class="glyphicon glyphicon-tag" style="font-size: 24px;" aria-hidden="true"></span><br>Produtos</div></a>
+    <a class="menu-link" href="@Url.Action("Index", "usuarios")" target="_self" title="Usuários"><div class="ico-menu"><span class="glyphicon glyphicon-user" style="font-size: 24px;" aria-hidden="true"></span><br>Usuários</div></a>
+    <a class="menu-link" href="@Url.Action("LogOut", "login")" target="_self" title="Encerra sua Sessão"><div class="ico-menu"><span class="glyphicon glyphicon-log-in" style="font-size: 24px;" aria-hidden="true"></span><br>Sair</div></a>
+</div>
+
+<div style="margin:80px 20px;">
+    <div class="row">
+        <h3>PRODUTOS À VENDA</h3>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Preco)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Preco)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Details", "Produtos", new { id = item.ProdutoId })" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Comprar
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
